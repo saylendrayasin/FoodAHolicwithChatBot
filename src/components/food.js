@@ -7,7 +7,7 @@ const Food = () => {
 
   useEffect(() => {
     fetch(
-      "https://api.spoonacular.com/recipes/complexSearch?apiKey=f20536e2a9f8460ba2ac66356e6fa945"
+      "https://api.spoonacular.com/recipes/complexSearch?apiKey=5fd32bc05eae4092b909c47e93bcad01"
     )
       .then((response) => response.json())
       .then((data) => setFood(data.results));
@@ -19,7 +19,7 @@ const Food = () => {
   const handleClick = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.spoonacular.com/recipes/complexSearch?query=${text}&number=&apiKey=f20536e2a9f8460ba2ac66356e6fa945`
+      `https://api.spoonacular.com/recipes/complexSearch?query=${text}&number=&apiKey=5fd32bc05eae4092b909c47e93bcad01`
     )
       .then((response) => response.json())
       .then((data) => setFood(data.results));

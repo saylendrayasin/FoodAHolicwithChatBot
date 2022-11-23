@@ -11,6 +11,15 @@ function getTime(date) {
   return strTime;
 }
 
+//function getDate
+function getDate(date) {
+  var month = date.getMonth() + 1;
+  var day = date.getDate();
+  var year = date.getFullYear();
+  var strDate = month + "/" + day + "/" + year;
+  return strDate;
+}
+
 //function getDay
 function getDay(date) {
   let day = date.getDay();
@@ -64,8 +73,12 @@ function rerandom_response(arr, last) {
 // data templates or responses
 const templates = `{\
     "name": "${rerandom_response(
-      ["Kamu nanya. Kamu bertanya-tanya. Call me, DormBot.", "Cek", "Tes"],
-      "Tes"
+      [
+        "Kamu nanya. Kamu bertanya-tanya. Call me, FoodBot.",
+        "Saya Bot yang suka makan",
+        "Bot yang tahu segalanya tentang makanan",
+      ],
+      "Saya Bot yang suka makan"
     )}", \
 
     "hobby":"Haha.. saya suka membaca pikiran kamu :).", \
@@ -75,16 +88,30 @@ const templates = `{\
     "thanks":"Iya, sama-sama ya.",\
     "hi":"Hi juga. Semoga harimu menyenangkan.",\
     "condition":"Saya adalah chatbot. Pastinya saya sehat.",\
-    "time":"Sekarang ${getDay(new Date())} jam ${getTime(new Date())}",\
-		"asu":"Kontol",\
+    "time":"Sekarang jam ${getTime(new Date())}",\
+		"breakfast":"Awali harimu dengan yang manis-manis",\
+    "lunch":"Makan apa saja yang kamu suka, jangan lupa olahraga",\
+    "dinner":"Carilah makanan dengan gizi dan protein yang tinggi",\
+    "dessert":"Contohnya snack",\
+    "maincourse":"Coba cari menu dengan nasi atau daging",\
+    "appatizer":"Ini makanan pembuka",\
+    "cake":"Silahkan dicoba, kalau gak bisa tinggal beli aja",\
+    "drink":"Rekomendasi minuman terbaik",\
+    "diet":"Affah iya?",\
+    "vegetarian":"Kontol",\
+    "meat":"Tersedia berbagai pilihan daging, silahkan cari sendiri",\
+    "seafood":"Makanan seafood",\
+    "proteinTinggi":"Menu ini punya protein tinggi",\
+    "proteinRendah":"Menu ini punya protein rendah",\
+    "howtomake":"Tinggal ikut tutorial :v",\
+    "howtocook":"Makanan bisa digoreng, direbus, dibakar, atau dipanggang",\
+    "recipe":"Jangan malas, cari lah!!!",\
+    "local":"Kamu bisa nasi goreng!",\
+    "date":"Sekarang tanggal ${getDate(new Date())}",\
+    "day":"Sekarang hari ${getDay(new Date())}",\
+    "month":"Sekarang bulan ${getMonth(new Date())}",\
 		"badword":"Jangan Toxic Bang"\
 }`;
 
-//rerender data responses
-function rerender_data() {
-  const data = JSON.parse(templates);
-  return data;
-}
-
 // parse to json object
-const data_responses = rerender_data();
+const data_responses = JSON.parse(templates);
